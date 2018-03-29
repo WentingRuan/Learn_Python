@@ -1,0 +1,52 @@
+# 1. 编写函数，要求输入x与y，返回x和y的平方差
+def xy(x,y):
+    print(x^2-y^2)
+
+xy(5,4)
+
+
+# 2. 计算1到100的平方的和
+a = 0
+for i in range(1,100):
+    a = a+i^2
+
+print(a)
+
+# 3. 编写函数，若输入为小于100的数，返回TRUE，大于100的数，返回FALSE
+def TF(n):
+    if n < 100:
+        return(True)
+    else:
+        return(FALSE)
+
+TF(30)
+
+# 4. 某个公司采用公用电话传递数据，数据是四位的整数，在传递过程中是加密的，加密规则如下： 
+# 每位数字都加上5,然后用和除以10的余数代替该数字，再将第一位和第四位交换，第二位和第三位交换。
+# 编写加密的函数与解密的函数。
+
+def mod_five(n):
+    a = {}
+    for i in range(0,4):
+        a[i] = (n % 10 + 5) % 10
+        n = n / 10 # 1234/10 = 123
+    
+    return(a)
+
+mod_five(1234)
+
+def encrypt(n): 
+    a = 0
+    b = 0  
+    if n > 9999:
+        return("error, please input four-digits number")
+    else:
+        a = mod_five(n)
+        b = a[0]+a[1]*10+a[2]*100+a[3]*1000
+        return(b)
+        
+
+decrypt = encrypt
+
+encrypt(1234)
+decrypt(6789)
