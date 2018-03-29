@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 #条件语句
+
 '''
 if 判断条件：
     执行语句……
@@ -11,9 +12,9 @@ flag = False
 name = 'python'
 if name == 'python':         # 判断变量否为'python'
     flag = True              # 条件成立时设置标志为真
-    print 'welcome boss'    # 并输出欢迎信息
+    print ('welcome boss')    # 并输出欢迎信息
 else:
-    print name              # 条件不成立时输出变量名称
+    print (name)              # 条件不成立时输出变量名称
 
 '''
 if 判断条件1:

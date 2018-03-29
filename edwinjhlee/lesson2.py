@@ -6,7 +6,7 @@ a[2:3]
 print(a[0:3]+ a[2:3])
 
 #slice(stop) or slice(start,stop,step)
-a[sclice(3)]
+a[slice(3)]
 a[slice(0,9,3)]
 
 print("abc"+"a")
@@ -98,7 +98,7 @@ int("123",10) # 默认10进制
 int("100000",2)
 
 # array
-
+import numpy as np
 a = np.array([1,2,3])
 
 a = 3

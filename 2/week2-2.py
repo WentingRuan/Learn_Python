@@ -9,7 +9,7 @@ def functionname( parameters ):
 
 def printme( str ):
    "打印传入的字符串到标准显示设备上"
-   print str
+   print (str)
    return
 
 #函数调用
@@ -21,13 +21,13 @@ printme("再次调用同一函数");
 def changeme( mylist ):
    "修改传入的列表"
    mylist.append([1,2,3,4]);
-   print "函数内取值: ", mylist
+   print ("函数内取值: ", mylist)
    return
  
 # 调用changeme函数
 mylist = [10,20,30];
 changeme( mylist );
-print "函数外取值: ", mylist
+print ("函数外取值: ", mylist)
 
 
 #参数
