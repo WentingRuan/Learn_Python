@@ -1,5 +1,9 @@
 # -*- coding: utf-8 -*-
 #向量相加-Python
+'''
+C:\Python27\python.exe
+'''
+
 def pythonsum(n):
     a = range(n)
     b = range(n)
@@ -262,7 +266,8 @@ data[names == 'Bob', 2:]
 data[names == 'Bob', 3]
 
 names != 'Bob'
-data[-(names == 'Bob')]
+data[names != 'Bob']
+
 
 mask = (names == 'Bob') | (names == 'Will')
 mask
@@ -278,17 +283,18 @@ data
 arr = np.empty((8, 4))
 for i in range(8):
     arr[i] = i
+
 arr
 
 arr[[4, 3, 0, 6]]
 
-arr[[-3, -5, -7]]
+arr[[-3, -5, -7]] #3,5,7 in reverse order
 
 arr = np.arange(32).reshape((8, 4))
 arr
-arr[[1, 5, 7, 2], [0, 3, 1, 2]]
+arr[[1, 5, 7, 2], [0, 3, 1, 2]] #[1,0],[5,3]
 
-arr[[1, 5, 7, 2]][:, [0, 3, 1, 2]]
+arr[[1, 5, 7, 2]][:, [0, 3, 1, 2]] # row[1,5,7,2],all col[0,3,1,2]
 
 arr[np.ix_([1, 5, 7, 2], [0, 3, 1, 2])]
 
@@ -302,7 +308,7 @@ b = np.arange(24).reshape(2,3,4)
 
 print b
 
-print b.ravel()
+print b.ravel() # 向量化
 
 print b.flatten()
 
@@ -316,6 +322,10 @@ b.resize((2,12))
 
 print b
 
+c = b.reshape(2,12)
+d = b.resize(2,12)
+c == d #False
+
 #组合数组
 a = np.arange(9).reshape(3,3)
 print (a)
@@ -325,34 +335,31 @@ b = 2 * a
 print b
 
 print np.hstack((a, b))
-
 print np.concatenate((a, b), axis=1)
 
 print np.vstack((a, b))
-
 print np.concatenate((a, b), axis=0)
 
-print np.dstack((a, b))
+print np.dstack((a, b))  #stack arrays in sequence depth wise(along third axis)
+
+print np.row_stack((a, b))
+print np.column_stack((a, b))
+print np.column_stack((a, b)) == np.hstack((a, b))
+print np.row_stack((a,b)) == np.vstack((a,b)) #False
+
 
 oned = np.arange(2)
-
 print oned
-
 twice_oned = 2 * oned
 
 print twice_oned
-
-print np.column_stack((oned, twice_oned)) 
-
-print np.column_stack((a, b))
-
-print np.column_stack((a, b)) == np.hstack((a, b))
-
 print np.row_stack((oned, twice_oned))
+print np.column_stack((oned, twice_oned)) 
+print np.hstack((oned, twice_oned)) 
+print np.vstack((oned, twice_oned)) 
+print np.row_stack((oned, twice_oned)) == np.vstack((oned, twice_oned)) 
 
-print np.row_stack((a, b))
 
-print np.row_stack((a,b)) == np.vstack((a, b))
 
 
 #数组的分割
