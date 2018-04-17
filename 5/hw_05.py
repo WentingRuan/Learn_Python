@@ -5,14 +5,17 @@ import sys
 from pandas import Series, DataFrame
 path = "D:/ts/Learn_Python/5/hw_data/"
 
+
 file = Series({"App-Shipments" : "ApplianceShipments.xls",
                 "Creditcard":"creditcard-dataset.txt",
                 "DressSales":'DressSales.csv'
                 })
 
+# read DressSales
 DressSales = pd.read_csv(path+file["DressSales"], index_col=['Dress_ID'],)
-DressSales
+DressSales[:3]
 
+# read Creditcard
 names = ["type","money1","money2",
         "code1","code2","code3",
         "code4","money3","t"
@@ -29,21 +32,8 @@ Creditcard = pd.read_table(path+file["Creditcard"],header=None,
                             names = name,
                             sep=','
                             )
-Creditcard
+Creditcard[:3]
 
-book = xlrd.open_workbook(path+file["App-Shipments"])
-book
-
-book.sheet_names()
-
-sheet_1 = book.sheet_by_name('Data')
-# sheet_1 = book.sheet_by_index(1)
-sheet_1.ncols, sheet_1.nrows
-
-for c in range(sheet_1.ncols):
-    for r in range(sheet_1.nrows):
-        print '%s' % str(sheet_1.cell(r, c).value)
-    print
 
 # pandas read xls
 xls_file=pd.ExcelFile(path +file["App-Shipments"])

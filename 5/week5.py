@@ -205,7 +205,7 @@ tot[:10]
 #文件写出
 data = pd.read_csv(ex5)
 data
-out = "/".join({position,"out.csv")
+out = "/".join({position,"out.csv"})
 data.to_csv(out)
 
 data.to_csv(sys.stdout, sep='|')
