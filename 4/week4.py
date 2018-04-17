@@ -131,7 +131,10 @@ np.unique(names)
 ints = np.array([3, 3, 3, 2, 2, 1, 1, 4, 4])
 np.unique(ints)
 
-sorted(set(names))
+s = set(names)
+ss = sorted(set(names))
+type(s);s
+type(ss);ss
 
 values = np.array([6, 0, 0, 3, 2, 5, 6])
 np.in1d(values, [2, 3, 6])
@@ -141,7 +144,7 @@ x = np.array([[1., 2., 3.], [4., 5., 6.]])
 y = np.array([[6., 23.], [-1, 7], [8, 9]])
 x
 y
-x.dot(y)  # 等价于np.dot(x, y)
+x.dot(y)  # 等价于np.dot(x, y), 矩阵的乘法
 
 np.dot(x, np.ones(3))
 
@@ -150,19 +153,30 @@ np.random.seed(12345)
 from numpy.linalg import inv, qr
 X = randn(5, 5)
 mat = X.T.dot(X)
-inv(mat)
-mat.dot(inv(mat))
-q, r = qr(mat)
+inv(mat) #求矩阵的逆矩阵
+mat.dot(inv(mat)) #np.dot(mat,inv(mat))
+
+'''
+矩阵可为实（复）矩阵
+如果非奇异矩阵A能够化成正交矩阵Q与非奇异上三角矩阵R的乘积，即A=QR，
+则称其为A的QR分解。
+'''
+q, r = qr(mat) # a qr factorization of a matrix
+q
 r
 
 ###随机数生成
 samples = np.random.normal(size=(4, 4))
 samples
 
+from IPython import get_ipython
 from random import normalvariate
 N = 1000000
+# %timeit samples = [normalvariate(0, 1) for _ in xrange(N)]
+# %timeit np.random.normal(size=100)
+
 get_ipython().magic(u'timeit samples = [normalvariate(0, 1) for _ in xrange(N)]')
-get_ipython().magic(u'timeit np.random.normal(size=N)')
+get_ipython().magic(u'timeit np.random.normal(size=100)')
 
 # 范例：随机漫步
 import random
