@@ -128,7 +128,9 @@ frame3
 
 # 制作文件读取series
 
-position = "C:/Users/41914/Documents/Language/2018/learn_python/Learn_Python/5/data"
+# position = "C:/Users/41914/Documents/Language/2018/learn_python/Learn_Python/5/data"
+position = "D:/ts/Learn_Python/5/data"
+
 file = Series({"ex1" : "ex1.csv",
                 "ex2":"ex2.csv",
                 "mindex":'csv_mindex.csv',
@@ -194,27 +196,17 @@ chunker = pd.read_csv(ex6, chunksize=1000)
 
 tot = Series([])
 for piece in chunker:
-    print ("piece: "+str(piece))
-    print ("piece[\"key\"]: "+ piece["key"]) 
-    print ("piece[\"key\"].value_counts(): "+piece["key"].value_counts())
     tot = tot.add(piece['key'].value_counts(), fill_value=0)
-
-
-
-chunk = pd.read_csv(ex6, chunksize=1)
-for piece in chunk:
-  print (" ".join({"piece[\"key\"]: ", str(piece["key"])}) 
-   # print ("piece[\"key\"].value_counts(): "+piece["key"].value_counts())
-
 
 tot = tot.order(ascending=False)
 
 tot[:10]
 
 #文件写出
-data = pd.read_csv('d:data/ex5.csv')
+data = pd.read_csv(ex5)
 data
-data.to_csv('d:data/out.csv')
+out = "/".join({position,"out.csv"})
+data.to_csv(out)
 
 data.to_csv(sys.stdout, sep='|')
 
