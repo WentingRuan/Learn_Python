@@ -11,11 +11,14 @@ import pandas as pd
 np.set_printoptions(precision=4, threshold=500)
 pd.options.display.max_rows = 100
 
-
 ###缺失值处理——拉格朗日插值法
-inputfile = 'd:/data/catering_sale.xls' #销量数据路径
-outputfile = 'd:/data/sales.xls' #输出数据路径
+inputfile = 'C:\\Users\\41914\\Documents\\Language\\new\\learn_python\\Learn_Python\\6\\data\\catering_sale.xls' #销量数据路径
+outputfile = 'C:\\Users\\41914\\Documents\\Language\\new\\learn_python\\Learn_Python\\6\\data\\sales.xls' #输出数据路径
+#inputfile = 'C:\Users\41914\Documents\Language\new\learn_python\Learn_Python\6\data\catering_sale.xls' #销量数据路径
+#outputfile = 'C:\Users\41914\Documents\Language\new\learn_python\Learn_Python\6\data\sales.xls' #输出数据路径
 
+
+# C:\python27\Scripts\pip install xlrd
 data = pd.read_excel(inputfile) #读入数据
 data[u'销量'][(data[u'销量'] < 400) | (data[u'销量'] > 5000)] = None #过滤异常值，将其变为空值
 
@@ -249,7 +252,7 @@ df.unstack('state').stack('side')
 
 ###长宽格式的转换
 #1
-data = pd.read_csv('d:data/macrodata.csv')
+data = pd.read_csv('d:data\macrodata.csv')
 periods = pd.PeriodIndex(year=data.year, quarter=data.quarter, name='date')
 data = DataFrame(data.to_records(),
                  columns=pd.Index(['realgdp', 'infl', 'unemp'], name='item'),
@@ -314,12 +317,12 @@ data
 data['food'].map(lambda x: meat_to_animal[x.lower()])
 
 # 数据标准化
-datafile = 'd:/data/normalization_data.xls' #参数初始化
+datafile = 'd:\data\normalization_data.xls' #参数初始化
 data = pd.read_excel(datafile, header = None) #读取数据
 
-(data - data.min())/(data.max() - data.min()) #最小-最大规范化
-(data - data.mean())/data.std() #零-均值规范化
-data/10**np.ceil(np.log10(data.abs().max())) #小数定标规范化
+(data - data.min())\(data.max() - data.min()) #最小-最大规范化
+(data - data.mean())\data.std() #零-均值规范化
+data\10**np.ceil(np.log10(data.abs().max())) #小数定标规范化
 
 
 ###替换值
@@ -436,7 +439,7 @@ df_with_dummy
 
 #2
 mnames = ['movie_id', 'title', 'genres']
-movies = pd.read_table('d:/data/movies.dat', sep='::', header=None,
+movies = pd.read_table('d:\data\movies.dat', sep='::', header=None,
                         names=mnames)
 movies[:10]
 
@@ -463,11 +466,11 @@ pd.get_dummies(pd.cut(values, bins))
 
 
 #参数初始化
-inputfile= 'd:/data/electricity_data.xls' #供入供出电量数据
-outputfile = 'd:/data/electricity_data.xls' #属性构造后数据文件
+inputfile= 'd:\data\electricity_data.xls' #供入供出电量数据
+outputfile = 'd:\data\electricity_data.xls' #属性构造后数据文件
 
 data = pd.read_excel(inputfile) #读入数据
-data[u'线损率'] = (data[u'供入电量'] - data[u'供出电量'])/data[u'供入电量']
+data[u'线损率'] = (data[u'供入电量'] - data[u'供出电量'])\data[u'供入电量']
 
 data.to_excel(outputfile, index = False) #保存结果
 
@@ -613,7 +616,7 @@ Wing, meat and skin with breading",
 '''
 
 import json
-db = json.load(open('d:/data/foods-2011-10-03.json'))
+db = json.load(open('d:\data\foods-2011-10-03.json'))
 len(db)
 
 db[0].keys()
