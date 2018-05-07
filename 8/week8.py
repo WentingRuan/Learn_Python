@@ -13,6 +13,10 @@ np.set_printoptions(precision=4)
 pd.options.display.notebook_repr_html = False
 get_ipython().magic(u'matplotlib inline')
 
+import pathlib as PL
+home = PL.Path(get_ipython().magic(u'pwd'))
+tips = pd.read_csv(home/'data/tips.csv', index_col=0, parse_dates=True)
+
 
 ### GroupBy 技术
 df = DataFrame({'key1' : ['a', 'a', 'b', 'b', 'a'],
@@ -126,7 +130,7 @@ grouped.describe()
 
 # ### 面向列的多函数应用
 
-tips = pd.read_csv('d:/data/tips.csv')
+# tips = pd.read_csv('d:/data/tips.csv')
 
 tips['tip_pct'] = tips['tip'] / tips['total_bill']
 tips[:6]
