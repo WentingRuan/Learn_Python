@@ -15,7 +15,7 @@ get_ipython().magic(u'matplotlib inline')
 
 import pathlib as PL
 home = PL.Path(get_ipython().magic(u'pwd'))
-tips = pd.read_csv(home/'data/tips.csv', index_col=0, parse_dates=True)
+tips = pd.read_csv(home/'data/tips.csv')
 
 
 ### GroupBy 技术
