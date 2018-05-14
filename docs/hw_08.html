@@ -12207,11 +12207,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;sex&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;mean&#39;</span><span class="p">,</span> <span class="s1">&#39;std&#39;</span><span class="p">])</span>
-<span class="n">t</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">group2</span><span class="o">=</span><span class="n">tips</span><span class="p">[[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">,</span><span class="s1">&#39;tip&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">])</span>
+<span class="n">group2</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:(</span><span class="n">x</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span><span class="o">/</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">())</span>
 </pre></div>
 
 </div>
@@ -12224,178 +12224,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead tr th {
-        text-align: left;
-    }
-
-    .dataframe thead tr:last-of-type th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr>
-      <th></th>
-      <th colspan="2" halign="left">total_bill</th>
-      <th colspan="2" halign="left">tip</th>
-      <th colspan="2" halign="left">size</th>
-    </tr>
-    <tr>
-      <th></th>
-      <th>mean</th>
-      <th>std</th>
-      <th>mean</th>
-      <th>std</th>
-      <th>mean</th>
-      <th>std</th>
-    </tr>
-    <tr>
-      <th>sex</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Female</th>
-      <td>18.056897</td>
-      <td>8.009209</td>
-      <td>2.833448</td>
-      <td>1.159495</td>
-      <td>2.459770</td>
-      <td>0.937644</td>
-    </tr>
-    <tr>
-      <th>Male</th>
-      <td>20.744076</td>
-      <td>9.246469</td>
-      <td>3.089618</td>
-      <td>1.489102</td>
-      <td>2.630573</td>
-      <td>0.955997</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tb_m_F</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Female</span>
-<span class="n">tb_m_M</span><span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Male</span>
-<span class="n">tb_std_F</span><span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">][</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Female</span>
-<span class="n">tb_std_M</span><span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">][</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Male</span>
-
-<span class="n">t_m_F</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Female</span>
-<span class="n">t_m_M</span><span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">][</span><span class="s1">&#39;mean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Male</span>
-<span class="n">t_std_F</span><span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">][</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Female</span>
-<span class="n">t_std_M</span><span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">][</span><span class="s1">&#39;std&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">Male</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;standard_total_bill&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1</span>
-<span class="n">tips</span><span class="p">[</span><span class="s1">&#39;standard_tip&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">1</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">])):</span>
-    <span class="k">if</span> <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Male&quot;</span><span class="p">:</span>
-        <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;standard_total_bill&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">tb_m_M</span><span class="p">)</span> <span class="o">/</span> <span class="n">tb_std_M</span>
-        <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;standard_tip&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">t_m_M</span><span class="p">)</span> <span class="o">/</span> <span class="n">t_std_M</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">tips</span><span class="p">[</span><span class="s2">&quot;standard_total_bill&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;total_bill&quot;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">tb_m_F</span><span class="p">)</span> <span class="o">/</span> <span class="n">tb_std_F</span>
-        <span class="n">tips</span><span class="p">[</span><span class="s1">&#39;standard_tip&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">t_m_F</span><span class="p">)</span> <span class="o">/</span> <span class="n">t_std_F</span>
-
-<span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>d:\Anaconda3\lib\site-packages\ipykernel_launcher.py:6: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-  
-d:\Anaconda3\lib\site-packages\ipykernel_launcher.py:7: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-  import sys
-d:\Anaconda3\lib\site-packages\ipykernel_launcher.py:3: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-  This is separate from the ipykernel package so we can avoid doing imports until
-d:\Anaconda3\lib\site-packages\ipykernel_launcher.py:4: SettingWithCopyWarning: 
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
-  after removing the cwd from sys.path.
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[8]:</div>
+<div class="prompt output_prompt">Out[46]:</div>
 
 
 
@@ -12420,78 +12249,317 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <th></th>
       <th>total_bill</th>
       <th>tip</th>
-      <th>sex</th>
-      <th>smoker</th>
-      <th>day</th>
-      <th>time</th>
-      <th>size</th>
-      <th>standard_total_bill</th>
-      <th>standard_tip</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>16.99</td>
-      <td>1.01</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
       <td>-0.133209</td>
       <td>-1.572623</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10.34</td>
-      <td>1.66</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
       <td>-1.125195</td>
       <td>-0.960054</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>21.01</td>
-      <td>3.50</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
       <td>0.028759</td>
       <td>0.275590</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>23.68</td>
-      <td>3.31</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
       <td>0.317518</td>
       <td>0.147997</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>24.59</td>
-      <td>3.61</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>4</td>
       <td>0.815699</td>
       <td>0.669733</td>
     </tr>
+    <tr>
+      <th>5</th>
+      <td>0.491639</td>
+      <td>1.088161</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>-1.294989</td>
+      <td>-0.731728</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.663596</td>
+      <td>0.020403</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-0.616892</td>
+      <td>-0.758590</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>-0.645011</td>
+      <td>0.094273</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>-1.132765</td>
+      <td>-0.926476</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>2.147915</td>
+      <td>1.868531</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-0.575796</td>
+      <td>-1.020493</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-0.250266</td>
+      <td>-0.060182</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-0.402898</td>
+      <td>0.160891</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>0.090405</td>
+      <td>0.557640</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>-0.964752</td>
+      <td>-1.003410</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>-0.481706</td>
+      <td>0.416615</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>-0.135706</td>
+      <td>0.574864</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-0.010174</td>
+      <td>0.174859</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>-0.305422</td>
+      <td>0.665087</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>0.278817</td>
+      <td>-0.071970</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>-0.285533</td>
+      <td>-0.520441</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>2.019790</td>
+      <td>3.015497</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>-0.099938</td>
+      <td>0.060696</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>-0.317319</td>
+      <td>-0.503403</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>-0.797502</td>
+      <td>-0.731728</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>-0.871043</td>
+      <td>-0.731728</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>0.103383</td>
+      <td>0.812827</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>0.198909</td>
+      <td>0.143642</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>214</th>
+      <td>1.262684</td>
+      <td>3.162198</td>
+    </tr>
+    <tr>
+      <th>215</th>
+      <td>-0.643871</td>
+      <td>-1.495003</td>
+    </tr>
+    <tr>
+      <th>216</th>
+      <td>0.800946</td>
+      <td>-0.060182</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>-0.990008</td>
+      <td>-1.067501</td>
+    </tr>
+    <tr>
+      <th>218</th>
+      <td>-1.406383</td>
+      <td>-1.107794</td>
+    </tr>
+    <tr>
+      <th>219</th>
+      <td>1.508651</td>
+      <td>0.221262</td>
+    </tr>
+    <tr>
+      <th>220</th>
+      <td>-0.928363</td>
+      <td>-0.597419</td>
+    </tr>
+    <tr>
+      <th>221</th>
+      <td>-0.578946</td>
+      <td>0.557615</td>
+    </tr>
+    <tr>
+      <th>222</th>
+      <td>-1.315538</td>
+      <td>-0.785452</td>
+    </tr>
+    <tr>
+      <th>223</th>
+      <td>-0.259314</td>
+      <td>0.143642</td>
+    </tr>
+    <tr>
+      <th>224</th>
+      <td>-0.792094</td>
+      <td>-1.013777</td>
+    </tr>
+    <tr>
+      <th>225</th>
+      <td>-0.223105</td>
+      <td>-0.287581</td>
+    </tr>
+    <tr>
+      <th>226</th>
+      <td>-0.994717</td>
+      <td>-0.718803</td>
+    </tr>
+    <tr>
+      <th>227</th>
+      <td>-0.031804</td>
+      <td>-0.060182</td>
+    </tr>
+    <tr>
+      <th>228</th>
+      <td>-0.807235</td>
+      <td>-0.248215</td>
+    </tr>
+    <tr>
+      <th>229</th>
+      <td>0.507304</td>
+      <td>0.040148</td>
+    </tr>
+    <tr>
+      <th>230</th>
+      <td>0.353208</td>
+      <td>-0.731728</td>
+    </tr>
+    <tr>
+      <th>231</th>
+      <td>-0.546595</td>
+      <td>-0.060182</td>
+    </tr>
+    <tr>
+      <th>232</th>
+      <td>-0.987845</td>
+      <td>0.201720</td>
+    </tr>
+    <tr>
+      <th>233</th>
+      <td>-1.078690</td>
+      <td>-1.087647</td>
+    </tr>
+    <tr>
+      <th>234</th>
+      <td>-0.563899</td>
+      <td>-0.060182</td>
+    </tr>
+    <tr>
+      <th>235</th>
+      <td>-1.154395</td>
+      <td>-1.235388</td>
+    </tr>
+    <tr>
+      <th>236</th>
+      <td>-0.880777</td>
+      <td>-1.403274</td>
+    </tr>
+    <tr>
+      <th>237</th>
+      <td>1.307085</td>
+      <td>-1.289111</td>
+    </tr>
+    <tr>
+      <th>238</th>
+      <td>2.219083</td>
+      <td>1.583924</td>
+    </tr>
+    <tr>
+      <th>239</th>
+      <td>0.896118</td>
+      <td>1.900731</td>
+    </tr>
+    <tr>
+      <th>240</th>
+      <td>1.139077</td>
+      <td>-0.718803</td>
+    </tr>
+    <tr>
+      <th>241</th>
+      <td>0.208287</td>
+      <td>-0.731728</td>
+    </tr>
+    <tr>
+      <th>242</th>
+      <td>-0.316237</td>
+      <td>-0.899615</td>
+    </tr>
+    <tr>
+      <th>243</th>
+      <td>0.090284</td>
+      <td>0.143642</td>
+    </tr>
   </tbody>
 </table>
+<p>244 rows × 2 columns</p>
 </div>
 </div>
 
@@ -12513,69 +12581,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>理解一：先求吸烟与不吸烟人群的小费平均值，再求吸烟与不吸烟人群的账单值，最后再求百分比差值。</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;smoker&#39;</span><span class="p">)</span>
-<span class="n">tb</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;total_bill&#39;</span><span class="p">]</span>
-<span class="n">tt</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span>
-
-<span class="n">no</span> <span class="o">=</span> <span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">No</span> <span class="o">/</span> <span class="n">tb</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">No</span> <span class="p">)</span><span class="o">*</span> <span class="mi">100</span>
-<span class="n">yes</span> <span class="o">=</span> <span class="p">(</span><span class="n">tt</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">Yes</span> <span class="o">/</span> <span class="n">tb</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">Yes</span> <span class="p">)</span><span class="o">*</span> <span class="mi">100</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;不吸烟人群中，小费均值与账单均值的百分比：&quot;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">no</span><span class="p">),</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;吸烟人群中，小费均值与账单均值的百分比：&quot;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">yes</span><span class="p">),</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;不吸烟与吸烟的消费比例均值的差值：&quot;</span><span class="p">,</span><span class="nb">str</span><span class="p">(</span><span class="n">no</span> <span class="o">-</span> <span class="n">yes</span><span class="p">),</span><span class="s2">&quot;%&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>不吸烟人群中，小费均值与账单均值的百分比： 15.59209368302254 %
-吸烟人群中，小费均值与账单均值的百分比： 14.495373871960378 %
-不吸烟与吸烟的消费比例均值的差值： 1.0967198110621617 %
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>理解二：求每一行的tip/total_bill的比例值均值，再求差</p>
+<p>理解：求每一行的tip/total_bill的比例值均值，再求差</p>
 
 </div>
 </div>
@@ -12642,19 +12648,24 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="&#23448;&#26041;">&#23448;&#26041;<a class="anchor-link" href="#&#23448;&#26041;">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">tips</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">group4</span><span class="o">=</span><span class="n">tips</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;size&#39;</span><span class="p">])[</span><span class="s1">&#39;tip_pct&#39;</span><span class="p">]</span>
+<span class="n">tmp4</span><span class="o">=</span><span class="n">group4</span><span class="o">.</span><span class="n">agg</span><span class="p">([</span><span class="s1">&#39;std&#39;</span><span class="p">,</span><span class="s1">&#39;mean&#39;</span><span class="p">])</span>
 
-<span class="n">fun</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">]</span>
-<span class="n">new_cols</span> <span class="o">=</span> <span class="n">t</span><span class="p">[</span><span class="s1">&#39;tip&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
-<span class="c1"># new_cols = new_cols.unstack(-2)</span>
-<span class="n">new_cols</span>
-<span class="n">tips</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">tips</span><span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">tips2</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span><span class="n">tmp4</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">,</span><span class="s1">&#39;size&#39;</span><span class="p">],</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tips2</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12667,223 +12678,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[13]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>numpy.int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">))</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="c1"># for i in range(0,12):</span>
-<span class="c1">#     s = b[i]</span>
-<span class="c1">#     a.append(str(s))</span>
-    
-<span class="c1"># a</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="n">b</span><span class="p">,</span>
-    <span class="s2">&quot;sex&quot;</span><span class="p">:</span> <span class="nb">list</span><span class="p">([</span><span class="s2">&quot;Female&quot;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">6</span> <span class="o">+</span> <span class="nb">list</span><span class="p">([</span><span class="s2">&quot;Male&quot;</span><span class="p">])</span> <span class="o">*</span><span class="mi">6</span><span class="p">,</span>
-    <span class="s2">&quot;std&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_cols</span><span class="p">[</span><span class="s1">&#39;std&#39;</span><span class="p">]),</span>
-    <span class="s2">&quot;mean&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">new_cols</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">])},</span>
-    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sex&quot;</span><span class="p">,</span><span class="s2">&quot;size&quot;</span><span class="p">,</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span><span class="s2">&quot;std&quot;</span><span class="p">]</span>
-<span class="p">)</span>
-
-<span class="n">new</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[15]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>sex</th>
-      <th>size</th>
-      <th>mean</th>
-      <th>std</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Female</td>
-      <td>1</td>
-      <td>1.276667</td>
-      <td>0.479201</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Female</td>
-      <td>2</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Female</td>
-      <td>3</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Female</td>
-      <td>4</td>
-      <td>4.021111</td>
-      <td>1.084924</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Female</td>
-      <td>5</td>
-      <td>5.140000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Female</td>
-      <td>6</td>
-      <td>4.600000</td>
-      <td>0.565685</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Male</td>
-      <td>1</td>
-      <td>1.920000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Male</td>
-      <td>2</td>
-      <td>2.614184</td>
-      <td>1.044757</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Male</td>
-      <td>3</td>
-      <td>3.476667</td>
-      <td>1.714419</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>Male</td>
-      <td>4</td>
-      <td>4.172143</td>
-      <td>1.798484</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Male</td>
-      <td>5</td>
-      <td>3.750000</td>
-      <td>1.500000</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Male</td>
-      <td>6</td>
-      <td>5.850000</td>
-      <td>1.202082</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#pd.concat([tips,new],axis=1,keys= [(&quot;sex&quot;,&quot;size&quot;)])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">tips</span><span class="p">,</span><span class="n">new</span><span class="p">,</span><span class="n">on</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;size&quot;</span><span class="p">,</span><span class="s2">&quot;sex&quot;</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[17]:</div>
+<div class="prompt output_prompt">Out[53]:</div>
 
 
 
@@ -12913,11 +12708,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <th>day</th>
       <th>time</th>
       <th>size</th>
-      <th>standard_total_bill</th>
-      <th>standard_tip</th>
+      <th>new_total_bill</th>
+      <th>new_tip</th>
       <th>tip_pct</th>
-      <th>mean</th>
       <th>std</th>
+      <th>mean</th>
     </tr>
   </thead>
   <tbody>
@@ -12933,11 +12728,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <td>-0.133209</td>
       <td>-1.572623</td>
       <td>0.059447</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
+      <td>0.055211</td>
+      <td>0.17083</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>14</th>
       <td>14.83</td>
       <td>3.02</td>
       <td>Female</td>
@@ -12948,11 +12743,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <td>-0.402898</td>
       <td>0.160891</td>
       <td>0.203641</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
+      <td>0.055211</td>
+      <td>0.17083</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>21</th>
       <td>20.29</td>
       <td>2.75</td>
       <td>Female</td>
@@ -12963,11 +12758,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <td>0.278817</td>
       <td>-0.071970</td>
       <td>0.135535</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
+      <td>0.055211</td>
+      <td>0.17083</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>22</th>
       <td>15.77</td>
       <td>2.23</td>
       <td>Female</td>
@@ -12978,11 +12773,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <td>-0.285533</td>
       <td>-0.520441</td>
       <td>0.141408</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
+      <td>0.055211</td>
+      <td>0.17083</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>29</th>
       <td>19.65</td>
       <td>3.00</td>
       <td>Female</td>
@@ -12993,852 +12788,11 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
       <td>0.198909</td>
       <td>0.143642</td>
       <td>0.152672</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>15.06</td>
-      <td>3.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.374181</td>
-      <td>0.143642</td>
-      <td>0.199203</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>10.29</td>
-      <td>2.60</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.969746</td>
-      <td>-0.201336</td>
-      <td>0.252672</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>26.41</td>
-      <td>1.50</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>1.042937</td>
-      <td>-1.150026</td>
-      <td>0.056797</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>16.45</td>
-      <td>2.47</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.200631</td>
-      <td>-0.313454</td>
-      <td>0.150152</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>26.86</td>
-      <td>3.14</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>1.099123</td>
-      <td>0.264384</td>
-      <td>0.116902</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>25.28</td>
-      <td>5.00</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>0.901850</td>
-      <td>1.868531</td>
-      <td>0.197785</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>14.73</td>
-      <td>2.20</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.415384</td>
-      <td>-0.546314</td>
-      <td>0.149355</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>5.75</td>
-      <td>1.00</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Fri</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-1.536593</td>
-      <td>-1.581248</td>
-      <td>0.173913</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>16.32</td>
-      <td>4.30</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Fri</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.216862</td>
-      <td>1.264820</td>
-      <td>0.263480</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>22.75</td>
-      <td>3.25</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Fri</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>0.585963</td>
-      <td>0.359253</td>
-      <td>0.142857</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>11.35</td>
-      <td>2.50</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Fri</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.837398</td>
-      <td>-0.287581</td>
-      <td>0.220264</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>15.38</td>
-      <td>3.00</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Fri</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.334227</td>
-      <td>0.143642</td>
-      <td>0.195059</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>22.42</td>
-      <td>3.48</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>0.544761</td>
-      <td>0.557615</td>
-      <td>0.155219</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>20.92</td>
-      <td>4.08</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>0.357476</td>
-      <td>1.075082</td>
-      <td>0.195029</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>14.31</td>
-      <td>4.00</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.467824</td>
-      <td>1.006086</td>
-      <td>0.279525</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>17.31</td>
-      <td>3.50</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>2</td>
-      <td>-0.093255</td>
-      <td>0.574864</td>
-      <td>0.202195</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>10.65</td>
-      <td>1.50</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.924798</td>
-      <td>-1.150026</td>
-      <td>0.140845</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>12.43</td>
-      <td>1.80</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.702553</td>
-      <td>-0.891292</td>
-      <td>0.144811</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>13.42</td>
-      <td>1.68</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.578946</td>
-      <td>-0.994785</td>
-      <td>0.125186</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>12.48</td>
-      <td>2.52</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.696311</td>
-      <td>-0.270332</td>
-      <td>0.201923</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>14.52</td>
-      <td>2.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.441604</td>
-      <td>-0.718803</td>
-      <td>0.137741</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>11.38</td>
-      <td>2.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.833652</td>
-      <td>-0.718803</td>
-      <td>0.175747</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>20.27</td>
-      <td>2.83</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>0.276320</td>
-      <td>-0.002974</td>
-      <td>0.139615</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>11.17</td>
-      <td>1.50</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.859872</td>
-      <td>-1.150026</td>
-      <td>0.134288</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>12.26</td>
-      <td>2.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>2</td>
-      <td>-0.723779</td>
-      <td>-0.718803</td>
-      <td>0.163132</td>
-      <td>2.528448</td>
-      <td>0.882510</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>214</th>
-      <td>48.33</td>
-      <td>9.00</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>4</td>
-      <td>2.983401</td>
-      <td>3.969092</td>
-      <td>0.186220</td>
-      <td>4.172143</td>
-      <td>1.798484</td>
-    </tr>
-    <tr>
-      <th>215</th>
-      <td>20.45</td>
-      <td>3.00</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>4</td>
-      <td>-0.031804</td>
-      <td>-0.060182</td>
-      <td>0.146699</td>
-      <td>4.172143</td>
-      <td>1.798484</td>
-    </tr>
-    <tr>
-      <th>216</th>
-      <td>24.01</td>
-      <td>2.00</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>4</td>
-      <td>0.353208</td>
-      <td>-0.731728</td>
-      <td>0.083299</td>
-      <td>4.172143</td>
-      <td>1.798484</td>
-    </tr>
-    <tr>
-      <th>217</th>
-      <td>10.33</td>
-      <td>1.67</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>-0.964752</td>
-      <td>-1.003410</td>
-      <td>0.161665</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>218</th>
-      <td>16.97</td>
-      <td>3.50</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>-0.135706</td>
-      <td>0.574864</td>
-      <td>0.206246</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>219</th>
-      <td>16.93</td>
-      <td>3.07</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>-0.140700</td>
-      <td>0.204013</td>
-      <td>0.181335</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>220</th>
-      <td>17.07</td>
-      <td>3.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>-0.123220</td>
-      <td>0.143642</td>
-      <td>0.175747</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>221</th>
-      <td>44.30</td>
-      <td>2.50</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>3.276616</td>
-      <td>-0.287581</td>
-      <td>0.056433</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>222</th>
-      <td>25.71</td>
-      <td>4.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>0.955538</td>
-      <td>1.006086</td>
-      <td>0.155581</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>223</th>
-      <td>18.64</td>
-      <td>1.36</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>3</td>
-      <td>0.072804</td>
-      <td>-1.270768</td>
-      <td>0.072961</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>224</th>
-      <td>16.21</td>
-      <td>2.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>-0.230597</td>
-      <td>-0.718803</td>
-      <td>0.123381</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>225</th>
-      <td>20.90</td>
-      <td>3.50</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>0.354979</td>
-      <td>0.574864</td>
-      <td>0.167464</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>226</th>
-      <td>18.15</td>
-      <td>3.50</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>0.011625</td>
-      <td>0.574864</td>
-      <td>0.192837</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>227</th>
-      <td>16.47</td>
-      <td>3.23</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>3</td>
-      <td>-0.198134</td>
-      <td>0.342004</td>
-      <td>0.196114</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>228</th>
-      <td>28.17</td>
-      <td>6.50</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>1.262684</td>
-      <td>3.162198</td>
-      <td>0.230742</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>229</th>
-      <td>15.98</td>
-      <td>3.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Fri</td>
-      <td>Lunch</td>
-      <td>3</td>
-      <td>-0.259314</td>
-      <td>0.143642</td>
-      <td>0.187735</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>230</th>
-      <td>35.83</td>
-      <td>4.67</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>3</td>
-      <td>2.219083</td>
-      <td>1.583924</td>
-      <td>0.130338</td>
-      <td>3.250000</td>
-      <td>1.291398</td>
-    </tr>
-    <tr>
-      <th>231</th>
-      <td>3.07</td>
-      <td>1.00</td>
-      <td>Female</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>1</td>
-      <td>-1.871208</td>
-      <td>-1.581248</td>
-      <td>0.325733</td>
-      <td>1.276667</td>
-      <td>0.479201</td>
-    </tr>
-    <tr>
-      <th>232</th>
-      <td>10.07</td>
-      <td>1.83</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>1</td>
-      <td>-0.997214</td>
-      <td>-0.865419</td>
-      <td>0.181728</td>
-      <td>1.276667</td>
-      <td>0.479201</td>
-    </tr>
-    <tr>
-      <th>233</th>
-      <td>7.25</td>
-      <td>1.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>1</td>
-      <td>-1.349309</td>
-      <td>-1.581248</td>
-      <td>0.137931</td>
-      <td>1.276667</td>
-      <td>0.479201</td>
-    </tr>
-    <tr>
-      <th>234</th>
-      <td>29.80</td>
-      <td>4.20</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>6</td>
-      <td>1.466200</td>
-      <td>1.178575</td>
-      <td>0.140940</td>
-      <td>4.600000</td>
-      <td>0.565685</td>
-    </tr>
-    <tr>
-      <th>235</th>
-      <td>27.05</td>
-      <td>5.00</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>6</td>
-      <td>1.122845</td>
-      <td>1.868531</td>
-      <td>0.184843</td>
-      <td>4.600000</td>
-      <td>0.565685</td>
-    </tr>
-    <tr>
-      <th>236</th>
-      <td>34.30</td>
-      <td>6.70</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>6</td>
-      <td>1.466065</td>
-      <td>2.424537</td>
-      <td>0.195335</td>
-      <td>5.850000</td>
-      <td>1.202082</td>
-    </tr>
-    <tr>
-      <th>237</th>
-      <td>48.17</td>
-      <td>5.00</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>6</td>
-      <td>2.966097</td>
-      <td>1.282909</td>
-      <td>0.103799</td>
-      <td>5.850000</td>
-      <td>1.202082</td>
-    </tr>
-    <tr>
-      <th>238</th>
-      <td>41.19</td>
-      <td>5.00</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Thur</td>
-      <td>Lunch</td>
-      <td>5</td>
-      <td>2.211214</td>
-      <td>1.282909</td>
-      <td>0.121389</td>
-      <td>3.750000</td>
-      <td>1.500000</td>
-    </tr>
-    <tr>
-      <th>239</th>
-      <td>20.69</td>
-      <td>5.00</td>
-      <td>Male</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>5</td>
-      <td>-0.005848</td>
-      <td>1.282909</td>
-      <td>0.241663</td>
-      <td>3.750000</td>
-      <td>1.500000</td>
-    </tr>
-    <tr>
-      <th>240</th>
-      <td>30.46</td>
-      <td>2.00</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>5</td>
-      <td>1.050771</td>
-      <td>-0.731728</td>
-      <td>0.065660</td>
-      <td>3.750000</td>
-      <td>1.500000</td>
-    </tr>
-    <tr>
-      <th>241</th>
-      <td>28.15</td>
-      <td>3.00</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>Sat</td>
-      <td>Dinner</td>
-      <td>5</td>
-      <td>0.800946</td>
-      <td>-0.060182</td>
-      <td>0.106572</td>
-      <td>3.750000</td>
-      <td>1.500000</td>
-    </tr>
-    <tr>
-      <th>242</th>
-      <td>29.85</td>
-      <td>5.14</td>
-      <td>Female</td>
-      <td>No</td>
-      <td>Sun</td>
-      <td>Dinner</td>
-      <td>5</td>
-      <td>1.472443</td>
-      <td>1.989274</td>
-      <td>0.172194</td>
-      <td>5.140000</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>243</th>
-      <td>8.58</td>
-      <td>1.92</td>
-      <td>Male</td>
-      <td>Yes</td>
-      <td>Fri</td>
-      <td>Lunch</td>
-      <td>1</td>
-      <td>-1.315538</td>
-      <td>-0.785452</td>
-      <td>0.223776</td>
-      <td>1.920000</td>
-      <td>NaN</td>
+      <td>0.055211</td>
+      <td>0.17083</td>
     </tr>
   </tbody>
 </table>
-<p>244 rows × 12 columns</p>
 </div>
 </div>
 
