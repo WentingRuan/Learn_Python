@@ -11790,13 +11790,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
 </pre></div>
 
 </div>
@@ -11806,7 +11807,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mf">5.1</span><span class="p">,</span><span class="mf">3.5</span><span class="p">,</span><span class="mf">7.1</span><span class="p">,</span><span class="mf">6.2</span><span class="p">,</span><span class="mf">8.8</span><span class="p">,</span><span class="mf">7.8</span><span class="p">,</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.6</span><span class="p">,</span><span class="mf">8.0</span><span class="p">,</span><span class="mf">6.4</span><span class="p">],</span>
@@ -11825,7 +11826,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[5]:</div>
+<div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -11916,7 +11917,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11933,13 +11934,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[15]:</div>
+<div class="prompt output_prompt">Out[7]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;seaborn.axisgrid.PairGrid at 0x265e91368d0&gt;</pre>
+<pre>&lt;seaborn.axisgrid.PairGrid at 0x259d47c97b8&gt;</pre>
 </div>
 
 </div>
@@ -11973,7 +11974,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#-1 == all</span>
@@ -12005,7 +12006,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[40]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12031,7 +12032,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># def standRegres(xArr,yArr):</span>
@@ -12053,7 +12054,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
@@ -12066,6 +12067,25 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[140.95363128]
+[[364.18196329]]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -12089,7 +12109,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x&#39;</span><span class="p">:[</span><span class="mi">7</span><span class="p">]})[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
@@ -12118,7 +12138,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -12135,7 +12155,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">X_test</span> <span class="o">=</span> <span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">]])</span>
@@ -12152,7 +12172,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -12169,7 +12189,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
@@ -12186,7 +12206,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[61]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -12213,7 +12233,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x1&#39;</span><span class="p">:[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">4.7</span><span class="p">,</span><span class="mf">1.7</span><span class="p">,</span><span class="mf">9.4</span><span class="p">,</span><span class="mf">10.1</span><span class="p">,</span><span class="mf">11.6</span><span class="p">,</span><span class="mf">12.6</span><span class="p">,</span><span class="mf">10.9</span><span class="p">,</span><span class="mf">23.1</span><span class="p">,</span><span class="mf">23.1</span><span class="p">,</span><span class="mf">21.6</span><span class="p">,</span><span class="mf">23.1</span><span class="p">,</span><span class="mf">1.9</span><span class="p">,</span><span class="mf">26.8</span><span class="p">,</span><span class="mf">29.9</span><span class="p">],</span>
@@ -12234,7 +12254,7 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[24]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -12312,18 +12332,30 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##利用现有库求解</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="k">import</span> <span class="n">LinearRegression</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;x1&#39;</span><span class="p">:[</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">3.1</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">4.7</span><span class="p">,</span><span class="mf">1.7</span><span class="p">,</span><span class="mf">9.4</span><span class="p">,</span><span class="mf">10.1</span><span class="p">,</span><span class="mf">11.6</span><span class="p">,</span><span class="mf">12.6</span><span class="p">,</span><span class="mf">10.9</span><span class="p">,</span><span class="mf">23.1</span><span class="p">,</span><span class="mf">23.1</span><span class="p">,</span><span class="mf">21.6</span><span class="p">,</span><span class="mf">23.1</span><span class="p">,</span><span class="mf">1.9</span><span class="p">,</span><span class="mf">26.8</span><span class="p">,</span><span class="mf">29.9</span><span class="p">],</span>
+ <span class="s1">&#39;x2&#39;</span><span class="p">:[</span><span class="mi">52</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">34</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">65</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">29</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">58</span><span class="p">,</span><span class="mi">51</span><span class="p">],</span>
+ <span class="s1">&#39;x3&#39;</span><span class="p">:[</span><span class="mi">158</span><span class="p">,</span><span class="mi">163</span><span class="p">,</span><span class="mi">37</span><span class="p">,</span><span class="mi">157</span><span class="p">,</span><span class="mi">59</span><span class="p">,</span><span class="mi">123</span><span class="p">,</span><span class="mi">46</span><span class="p">,</span><span class="mi">117</span><span class="p">,</span><span class="mi">173</span><span class="p">,</span><span class="mi">112</span><span class="p">,</span><span class="mi">111</span><span class="p">,</span><span class="mi">114</span><span class="p">,</span><span class="mi">134</span><span class="p">,</span><span class="mi">73</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">143</span><span class="p">,</span><span class="mi">202</span><span class="p">,</span><span class="mi">124</span><span class="p">],</span>
+ <span class="s1">&#39;y&#39;</span><span class="p">:[</span><span class="mi">64</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">71</span><span class="p">,</span><span class="mi">61</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">81</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">51</span><span class="p">,</span><span class="mi">76</span><span class="p">,</span><span class="mi">96</span><span class="p">,</span><span class="mi">77</span><span class="p">,</span><span class="mi">93</span><span class="p">,</span><span class="mi">95</span><span class="p">,</span><span class="mi">54</span><span class="p">,</span><span class="mi">168</span><span class="p">,</span><span class="mi">99</span><span class="p">]})</span>   
+
+<span class="c1">#加入所有自变量</span>
 <span class="n">linreg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-
-<span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
+<span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">]],</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>  
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">]])</span>  
 <span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
 <span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">],</span> <span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">y_pred</span><span class="p">)))</span>
+     
+<span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12340,83 +12372,80 @@ C:\Anaconda3\lib\site-packages\ipykernel_launcher.py:2: FutureWarning: reshape i
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>33.147018037483534
-[1.53736642 0.36028123 0.12419886]
-&lt;zip object at 0x0000023BAF289348&gt;
+<pre>43.650072446518664
+[ 1.78533861 -0.08329137  0.16102189]
+MAE: 13.328007676045038
+MSE: 310.2077586074669
+RMSE: 17.61271582145885
 </pre>
 </div>
 </div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##测试集和训练集的构建</span>
-<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="k">import</span> <span class="n">train_test_split</span>
-<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
-
-<span class="c1">#结果</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;intercep of X_train&quot;</span><span class="p">,</span><span class="n">linreg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;coef of X_train&quot;</span><span class="p">,</span><span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">],</span> <span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">))</span>
-
-<span class="c1">#预测</span>
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
-
-<span class="c1">#误差评估</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="k">import</span> <span class="n">metrics</span>
-
-<span class="c1"># calculate MAE using scikit-learn</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-<span class="c1"># calculate MSE using scikit-learn</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate RMSE using scikit-learn</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
 
 <div class="output_area">
 
-<div class="prompt"></div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>intercep of X_train -3.722668248643174
-coef of X_train [1.64669775 0.40642536 0.36777128]
-&lt;zip object at 0x0000023BAF744108&gt;
-MAE: 26.168225518358888
-MSE: 883.6886681812775
-RMSE: 29.72690142247048
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>x1</th>
+      <th>x2</th>
+      <th>x3</th>
+      <th>y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>x1</th>
+      <td>1.000000</td>
+      <td>0.468022</td>
+      <td>0.151964</td>
+      <td>0.693403</td>
+    </tr>
+    <tr>
+      <th>x2</th>
+      <td>0.468022</td>
+      <td>1.000000</td>
+      <td>0.315242</td>
+      <td>0.358414</td>
+    </tr>
+    <tr>
+      <th>x3</th>
+      <td>0.151964</td>
+      <td>0.315242</td>
+      <td>1.000000</td>
+      <td>0.361685</td>
+    </tr>
+    <tr>
+      <th>y</th>
+      <td>0.693403</td>
+      <td>0.358414</td>
+      <td>0.361685</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
 </div>
 
 </div>
@@ -12433,7 +12462,7 @@ RMSE: 29.72690142247048
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##模型比较</span>
@@ -12442,23 +12471,21 @@ RMSE: 29.72690142247048
 <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">]</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span>
 
+<span class="c1">##测试集和训练集的构建</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="k">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
+<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
 
-<span class="c1"># calculate MAE using scikit-learn</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate MSE using scikit-learn</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate RMSE using scikit-learn</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+     
 </pre></div>
 
 </div>
@@ -12475,9 +12502,11 @@ RMSE: 29.72690142247048
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>MAE: 28.436127982628967
-MSE: 911.3013770798904
-RMSE: 30.187768666794344
+<pre>1.536702862365587
+[0.48371701 0.44497481]
+MAE: 30.888170060232778
+MSE: 1110.6362415286244
+RMSE: 33.32620952836707
 </pre>
 </div>
 </div>
@@ -12496,31 +12525,30 @@ RMSE: 30.187768666794344
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##模型比较</span>
 <span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x3&#39;</span><span class="p">]</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span>
 
+<span class="c1">##测试集和训练集的构建</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="k">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
+<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
 
-<span class="c1"># calculate MAE using scikit-learn</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate MSE using scikit-learn</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate RMSE using scikit-learn</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+     
 </pre></div>
 
 </div>
@@ -12537,7 +12565,9 @@ RMSE: 30.187768666794344
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>MAE: 26.8351076237799
+<pre>5.134145686059995
+[1.81681094 0.40949419]
+MAE: 26.8351076237799
 MSE: 901.3111436948706
 RMSE: 30.02184444192046
 </pre>
@@ -12558,31 +12588,30 @@ RMSE: 30.02184444192046
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">##模型比较</span>
 <span class="n">feature_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">]</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">feature_cols</span><span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">y</span>
 
+<span class="c1">##测试集和训练集的构建</span>
+<span class="kn">from</span> <span class="nn">sklearn.cross_validation</span> <span class="k">import</span> <span class="n">train_test_split</span>
 <span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
 
 <span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 
+<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
 
-<span class="c1"># calculate MAE using scikit-learn</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate MSE using scikit-learn</span>
 <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">))</span>
-
-
-<span class="c1"># calculate RMSE using scikit-learn</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)))</span>
+     
 </pre></div>
 
 </div>
@@ -12599,9 +12628,11 @@ RMSE: 30.02184444192046
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>MAE: 9.297815770068002
-MSE: 134.8433830257057
-RMSE: 11.612208361276751
+<pre>50.98963961830084
+[1.91625793 0.17481953]
+MAE: 7.0177139230369106
+MSE: 58.70035005206942
+RMSE: 7.661615368319492
 </pre>
 </div>
 </div>
