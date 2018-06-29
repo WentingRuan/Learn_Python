@@ -12106,7 +12106,7 @@ y shape:
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[150]:</div>
+<div class="prompt input_prompt">In&nbsp;[165]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -12118,7 +12118,7 @@ y shape:
 <span class="n">MSE</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">RMSE</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
-
+<span class="n">linreg</span><span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">var</span><span class="p">:</span>
     <span class="n">linreg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
     <span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>  
@@ -12205,128 +12205,26 @@ RMSE: 18.053560754920667
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 加入所有变量</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-
-<span class="c1">#加入所有自变量</span>
-<span class="n">linreg</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<span class="n">linreg</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">]],</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>  
-<span class="n">y_pred</span> <span class="o">=</span> <span class="n">linreg</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span><span class="s1">&#39;x2&#39;</span><span class="p">,</span><span class="s1">&#39;x3&#39;</span><span class="p">]])</span>  
-<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">intercept_</span><span class="p">)</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">linreg</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
-
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MAE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">y_pred</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;MSE:&quot;</span><span class="p">,</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">y_pred</span><span class="p">))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;RMSE:&quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span><span class="n">y_pred</span><span class="p">)))</span>
-     
-<span class="n">data</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>-10.127988155231051
-[-0.05139616  0.58694904  0.28684868]
-MAE: 0.3233899552716801
-MSE: 0.15208631466626968
-RMSE: 0.38998245430566447
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[79]:</div>
-
-
-
-<div class="output_html rendered_html output_subarea output_execute_result">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>x1</th>
-      <th>x2</th>
-      <th>x3</th>
-      <th>y</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>x1</th>
-      <td>1.000000</td>
-      <td>0.025851</td>
-      <td>0.997261</td>
-      <td>0.965278</td>
-    </tr>
-    <tr>
-      <th>x2</th>
-      <td>0.025851</td>
-      <td>1.000000</td>
-      <td>0.035673</td>
-      <td>0.250747</td>
-    </tr>
-    <tr>
-      <th>x3</th>
-      <td>0.997261</td>
-      <td>0.035673</td>
-      <td>1.000000</td>
-      <td>0.971869</td>
-    </tr>
-    <tr>
-      <th>y</th>
-      <td>0.965278</td>
-      <td>0.250747</td>
-      <td>0.971869</td>
-      <td>1.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;x1&quot;</span><span class="p">],[</span><span class="s2">&quot;x2&quot;</span><span class="p">],[</span><span class="s2">&quot;x3&quot;</span><span class="p">],[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;x2&quot;</span><span class="p">],[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;x3&quot;</span><span class="p">],[</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span><span class="s2">&quot;x3&quot;</span><span class="p">],[</span><span class="s2">&quot;x1&quot;</span><span class="p">,</span><span class="s2">&quot;x2&quot;</span><span class="p">,</span><span class="s2">&quot;x3&quot;</span><span class="p">]]</span>
-
+<span class="n">linreg</span><span class="o">=</span> <span class="mi">0</span>
 <span class="n">MAE</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">MSE</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">RMSE</span> <span class="o">=</span> <span class="p">[]</span>
@@ -12348,7 +12246,9 @@ RMSE: 0.38998245430566447
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="n">index</span><span class="o">+=</span><span class="mi">1</span>
 
-    
+<span class="nb">print</span> <span class="p">(</span><span class="n">MAE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MAE</span><span class="p">)))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">)))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="n">RMSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)))</span>    
 </pre></div>
 
 </div>
@@ -12414,41 +12314,9 @@ MSE: 0.15208631466626968
 RMSE: 0.38998245430566447
 
 
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[151]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">MAE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MAE</span><span class="p">)))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">MSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">MSE</span><span class="p">)))</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">RMSE</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">RMSE</span><span class="p">)))</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1
-1
-1
+6
+6
+6
 </pre>
 </div>
 </div>
@@ -12461,7 +12329,7 @@ RMSE: 0.38998245430566447
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>结论: 从MAE来看，x1对y的影响最大；从MSE与RMSE来看，x1,x2与x3共同对y造成影响</p>
+<p>结论: 从MAE、MSE与RMSE来看，x1,x2与x3共同对y造成影响</p>
 
 </div>
 </div>
